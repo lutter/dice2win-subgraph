@@ -1,0 +1,25 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Dice2Win
+    source:
+      address: "0xd1ceeeeee83f8bcf3bedad437202b6154e9f5405"
+      abi: Dice2Win
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.1
+      language: wasm/assemblyscript
+      entities: []
+      abis:
+        - name: Dice2Win
+          file: ./contract/abi.json
+      eventHandlers:
+        - event: Payment(address,uint256)
+          handler: handlePayment
+        - event: JackpotPayment(address,uint256)
+          handler: handleJackpotPayment
+        - event: Commit(uint256)
+          handler: handleCommit
+      file: ./mapping.ts
