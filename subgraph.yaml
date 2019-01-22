@@ -1,9 +1,12 @@
 specVersion: 0.0.1
+description: Fair games that pay Ether
+repository: https://github.com/lutter/dice2win-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Dice2Win
+    network: mainnet
     source:
       address: "0xd1ceeeeee83f8bcf3bedad437202b6154e9f5405"
       abi: Dice2Win

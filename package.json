@@ -1,6 +1,6 @@
 {
   "name": "dice2win",
-  "license" : "MIT",
+  "license": "MIT",
   "scripts": {
     "codegen": "graph codegen --output-dir build/types subgraph.yaml",
     "build": "graph build subgraph.yaml",
