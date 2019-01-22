@@ -1,6 +1,5 @@
 type Beneficiary @entity {
   id: ID!
-  address: Bytes!
   winnings: BigInt!
   jackpots: BigInt!
 }
