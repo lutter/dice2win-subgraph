@@ -2,4 +2,6 @@ type Beneficiary @entity {
   id: ID!
   winnings: BigInt!
   jackpots: BigInt!
+  name: String
+  generation: Int
 }

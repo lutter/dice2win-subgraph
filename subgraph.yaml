@@ -1,5 +1,5 @@
 specVersion: 0.0.1
-description: Fair games that pay Ether
+description: Fair games that pay Ether (v2)
 repository: https://github.com/lutter/dice2win-subgraph
 schema:
   file: ./schema.graphql
