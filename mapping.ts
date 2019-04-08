@@ -14,33 +14,33 @@ const BENEFICIARY = 'Beneficiary'
 // a new beneficiary if none exists yet
 // Return that beneficiary, but do not store it yet
 function updateWinnings(beneficiary: Address, amount: BigInt) : Beneficiary {
-    let id = beneficiary.toHex()
-    let ben = Beneficiary.load(id)
-    if (ben === null) {
-        ben = new Beneficiary(id)
-        ben.winnings = amount
-        // This initialization is important; otherwise we store NULLS
-        // in new jackpots
-        ben.jackpots = BigInt.fromI32(0)
-    } else {
-        ben.winnings = ben.winnings.plus(amount)
-    }
-    return ben as Beneficiary
+  let id = beneficiary.toHex()
+  let ben = Beneficiary.load(id)
+  if (ben === null) {
+    ben = new Beneficiary(id)
+    ben.winnings = amount
+    // This initialization is important; otherwise we store NULLS
+    // in new jackpots
+    ben.jackpots = BigInt.fromI32(0)
+  } else {
+    ben.winnings = ben.winnings.plus(amount)
+  }
+  return ben as Beneficiary
 }
 
 export function handlePayment(event: Payment): void {
-    let ben = updateWinnings(event.params.beneficiary, event.params.amount)
-    store.set(BENEFICIARY, ben.id, ben)
+  let ben = updateWinnings(event.params.beneficiary, event.params.amount)
+  store.set(BENEFICIARY, ben.id, ben)
 }
 
 export function handleJackpotPayment(event: JackpotPayment): void {
-    let ben = updateWinnings(event.params.beneficiary, event.params.amount)
+  let ben = updateWinnings(event.params.beneficiary, event.params.amount)
 
-    ben.jackpots = ben.jackpots.plus(BigInt.fromI32(1))
+  ben.jackpots = ben.jackpots.plus(BigInt.fromI32(1))
 
-    store.set(BENEFICIARY, ben.id, ben)
+  store.set(BENEFICIARY, ben.id, ben)
 }
 
 export function handleCommit(event: Commit): void {
-    // do nothing yet
+  // do nothing yet
 }
