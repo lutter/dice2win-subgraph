@@ -12,16 +12,16 @@ dataSources:
       abi: Dice2Win
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.1
+      apiVersion: 0.0.3
       language: wasm/assemblyscript
       entities: []
       abis:
         - name: Dice2Win
           file: ./contract/abi.json
       eventHandlers:
-        - event: Payment(address,uint256)
+        - event: Payment(indexed address,uint256)
           handler: handlePayment
-        - event: JackpotPayment(address,uint256)
+        - event: JackpotPayment(indexed address,uint256)
           handler: handleJackpotPayment
         - event: Commit(uint256)
           handler: handleCommit
