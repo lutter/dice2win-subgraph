@@ -1,5 +1,5 @@
 specVersion: 0.0.2
-description: Fair games that pay Ether
+description: Fair games that pay Ether (v4)
 repository: https://github.com/lutter/dice2win-subgraph
 schema:
   file: ./schema.graphql
@@ -12,7 +12,7 @@ dataSources:
       abi: Dice2Win
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities: []
       abis:

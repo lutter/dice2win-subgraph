@@ -6,14 +6,15 @@
     "build": "graph build subgraph.yaml",
     "build-ipfs": "graph build --ipfs /ip4/127.0.0.1/tcp/5001 subgraph.yaml",
     "build-wast": "graph build -t wast subgraph.yaml",
-    "deploy": "graph deploy --verbosity debug --node https://api.staging.thegraph.com/deploy/ --ipfs https://api.staging.thegraph.com/ipfs/ lutter/dice2win subgraph.yaml",
+    "deploy-prod": "graph deploy --verbosity debug --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ lutter/dice2win subgraph.yaml",
+    "deploy": "graph deploy --access-token '87fb730dd47b4a20811591544c6e5d80' --verbosity debug --node https://api.staging.thegraph.com/deploy/ --ipfs https://api.staging.thegraph.com/ipfs/ lutter/dice2win subgraph.yaml",
     "watch": "graph deploy subgraph.yaml --watch --verbosity debug --node http://127.0.0.1:8020/ --ipfs /ip4/127.0.0.1/tcp/5001 --subgraph-name dice2win",
     "create-local": "graph create --node http://localhost:8020/ lutter/dice2win",
     "remove-local": "graph remove --node http://localhost:8020/ lutter/dice2win",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 lutter/dice2win"
   },
   "devDependencies": {
-    "@graphprotocol/graph-cli": "^0.17.1",
-    "@graphprotocol/graph-ts": "^0.17.0"
+    "@graphprotocol/graph-cli": "^0.19.0",
+    "@graphprotocol/graph-ts": "^0.19.0"
   }
 }
